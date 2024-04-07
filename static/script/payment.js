@@ -164,7 +164,6 @@ expiryYear_input.addEventListener('input', (e) => {
     expiryYear.innerText = e.target.value;
 });
 // This is your test publishable API key.
-// const stripe = Stripe("");
 
 
 // The items the customer wants to buy

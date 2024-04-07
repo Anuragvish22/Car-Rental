@@ -6,7 +6,6 @@ const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const { sendToken, sendCookie } = require('../utils/jwtToken');
 const jwt = require('jsonwebtoken');
 const stripe = require('stripe')(process.env.STRIPE_PUBLISHABLE_KEY);
-// console.log(process.env.STRIPE_PUBLISHABLE_KEY);
 require('dotenv').config();
 exports.createPaymentIntent = catchAsyncErrors(async (req, res, next) => {
     const confirmOrder = jwt.verify(req.cookies.confirmOrder, process.env.JWT_SECRET);
@@ -32,7 +31,7 @@ exports.createPaymentIntent = catchAsyncErrors(async (req, res, next) => {
     });
 });
 exports.createOrder = catchAsyncErrors(async (req, res, next) => {
-    console.log('aaya');
+    // console.log('aaya');
     const { shippingInfo, orderItems, paymentInfo, itemsPrice, taxPrice, shippingPrice, totalPrice, orderStatus } = req.body;
     const order = new orderModel({
         shippingInfo,
